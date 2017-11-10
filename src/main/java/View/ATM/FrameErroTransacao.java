@@ -113,9 +113,9 @@ public class FrameErroTransacao extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(lblTenteNovamente1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addGroup(PainelPrincipal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSeta2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRetornar1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(PainelPrincipal1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblSeta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRetornar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31))
         );
 
