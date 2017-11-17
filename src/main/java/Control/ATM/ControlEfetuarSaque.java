@@ -4,6 +4,7 @@ import DAO.ATM.ContaDAO;
 import DAO.ATM.MovimentacaoDAO;
 import Entity.ATM.Movimentacao;
 import Model.ATM.Sacar;
+import Model.ATM.ValidaNumero;
 import Util.ATM.GerarNumero;
 import View.ATM.FrameEfetuarSaque;
 import View.ATM.FrameErroTransacao;
@@ -18,7 +19,8 @@ public class ControlEfetuarSaque {
 
     public static void efetuarSaque(FrameEfetuarSaque currentFrame, FrameSucessoTransacao sucessFrame, FrameErroTransacao errorFrame, String valor) {
         // Valida os dados
-        if (!isNumeric(valor)) {
+        valor = valor.replace(",", ".");
+        if (!ValidaNumero.isNumeric(valor)) {
             msgErro("Erro", "Valor inválido!");
             currentFrame.focoValor();
         } else {
@@ -78,17 +80,6 @@ public class ControlEfetuarSaque {
     public static void erro(FrameEfetuarSaque currentFrame, FrameErroTransacao nextFrame) {
         currentFrame.setVisible(false); // Oculta o FrameEfetuarDeposito
         nextFrame.setVisible(true); // Exibe o FrameErroTransacao
-    }
-
-    // Método que verifica se uma string possui valor numérico
-    public static boolean isNumeric(String str) {
-        try {
-            double d = Double.parseDouble(str);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-
-        return true;
     }
 
     // Método que exibe um alerta (mensagem) de erro
