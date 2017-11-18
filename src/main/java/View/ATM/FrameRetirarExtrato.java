@@ -336,7 +336,7 @@ public final class FrameRetirarExtrato extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar6ActionPerformed
 
     private void btnEfetuarDeposito7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarDeposito7ActionPerformed
-        ControlRetirarExtrato.imprimir();
+        ControlRetirarExtrato.imprimir(jTableExtrato, conta);
     }//GEN-LAST:event_btnEfetuarDeposito7ActionPerformed
 
     /**
