@@ -3,6 +3,7 @@ package DAO.ATM;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.JOptionPane;
 
 public class Instance {
 
@@ -10,11 +11,21 @@ public class Instance {
     private static EntityManagerFactory factory = null;
 
     public static EntityManager getEntityManager() {
-        factory = Persistence.createEntityManagerFactory("BancoMoneyMaker_ATMPU");
+        try {
+            factory = Persistence.createEntityManagerFactory("BancoMoneyMaker_ATMPU");
 
-        if (entityManager == null)
-            entityManager = factory.createEntityManager();
+            if (entityManager == null)
+                entityManager = factory.createEntityManager();
 
-        return entityManager;
+            return entityManager;
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+            JOptionPane.showMessageDialog(null, "Erro ao conectar ao banco de dados!", "Banco MoneyMaker", JOptionPane.ERROR_MESSAGE);
+            
+            System.exit(1);
+        }
+        
+        return null;
     }
 }
