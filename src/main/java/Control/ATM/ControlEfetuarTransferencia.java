@@ -47,11 +47,11 @@ public class ControlEfetuarTransferencia {
             }
 
             // Envia a solicitação para o pacote Model
-            if (Transferir.transferir(currentFrame.getConta(), destino, _valor)) {
+            if (Transferir.transferir(currentFrame.getParentFrame().getConta(), destino, _valor)) {
                 
                 // Debita na conta de origem
-                double saldoOrigem = currentFrame.getConta().getSaldo() - _valor;
-                currentFrame.getConta().setSaldo(saldoOrigem);
+                double saldoOrigem = currentFrame.getParentFrame().getConta().getSaldo() - _valor;
+                currentFrame.getParentFrame().getConta().setSaldo(saldoOrigem);
                 
                 // Credita na conta de destino
                 double saldoDestino = destino.getSaldo() + _valor;
@@ -64,17 +64,17 @@ public class ControlEfetuarTransferencia {
                 Movimentacao movimentacao1 = new Movimentacao();
                 movimentacao1.setDatamov(dateFormat.format(date));
                 movimentacao1.setNumero(GerarNumero.get());
-                movimentacao1.setOperacao("TRANSFERENCIA");
-                movimentacao1.setCpf(currentFrame.getConta().getCliente().getCpf());
+                movimentacao1.setOperacao("TRANSF-DEB");
+                movimentacao1.setCpf(currentFrame.getParentFrame().getConta().getCliente().getCpf());
                 movimentacao1.setValor(String.format("%.2f", _valor));
                 movimentacao1.setSaldo(String.format("%.2f", saldoOrigem));
-                currentFrame.getConta().addMovimentacao(movimentacao1);
+                currentFrame.getParentFrame().getConta().addMovimentacao(movimentacao1);
                 
                 // Na conta de destino
                 Movimentacao movimentacao2 = new Movimentacao();
                 movimentacao2.setDatamov(dateFormat.format(date));
                 movimentacao2.setNumero(GerarNumero.get());
-                movimentacao2.setOperacao("TRANSFERENCIA");
+                movimentacao2.setOperacao("TRANSF-CRED");
                 movimentacao2.setCpf(destino.getCliente().getCpf());
                 movimentacao2.setValor(String.format("%.2f", _valor));
                 movimentacao2.setSaldo(String.format("%.2f", saldoDestino));
@@ -84,13 +84,13 @@ public class ControlEfetuarTransferencia {
                 boolean status1 = false;
                 boolean status2 = false;
 
-                movimentacao1.setConta(currentFrame.getConta());
+                movimentacao1.setConta(currentFrame.getParentFrame().getConta());
                 movimentacao2.setConta(destino);
 
                 try {
                     MovimentacaoDAO.getInstance().persist(movimentacao1);
                     MovimentacaoDAO.getInstance().persist(movimentacao2);
-                    status1 = ContaDAO.getInstance().merge(currentFrame.getConta());
+                    status1 = ContaDAO.getInstance().merge(currentFrame.getParentFrame().getConta());
                     status2 = ContaDAO.getInstance().merge(destino);
                     
                     if (status1 && status2) {

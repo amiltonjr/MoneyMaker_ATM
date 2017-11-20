@@ -331,14 +331,7 @@ public class FrameMenuOperacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOutrosclick
 
     private void btnCancelar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar7ActionPerformed
-         // Remove a conta em todos os frames
-         this.setConta(null);
-         this.getFrameConsultaSaldo().setConta(null);
-         this.getFrameEfetuarDeposito().setConta(null);
-         this.getFrameEfetuarSaque().setConta(null);
-         this.getFrameEfetuarTransferencia().setConta(null);
-         this.getFrameRetirarExtrato().setConta(null);
-        
+        this.setConta(null); // Remove a conta 
         ControlMenuPrincipal.cancelar(this, getParentFrame());
     }//GEN-LAST:event_btnCancelar7ActionPerformed
 

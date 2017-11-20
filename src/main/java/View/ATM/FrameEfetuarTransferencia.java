@@ -7,7 +7,6 @@ package View.ATM;
 
 import Control.ATM.ControlEfetuarTransferencia;
 import Control.ATM.ControlMenuPrincipal;
-import Entity.ATM.Conta;
 /**
  *
  * @author amiltonjunior
@@ -18,7 +17,6 @@ public class FrameEfetuarTransferencia extends javax.swing.JFrame {
     private FrameMenuOperacoes parentFrame;
     private FrameSucessoTransacao frameSucesso;
     private FrameErroTransacao frameErro;
-    private Conta conta;
     
     /**
      * Creates new form FrameEfetuarTransferencia
@@ -61,16 +59,6 @@ public class FrameEfetuarTransferencia extends javax.swing.JFrame {
     public void focoConta() {
         numeroConta.requestFocus();
     }
-
-    public Conta getConta() {
-        return conta;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
-    }
-    
-  
 
     /**
      * This method is called from within the constructor to initialize the form.

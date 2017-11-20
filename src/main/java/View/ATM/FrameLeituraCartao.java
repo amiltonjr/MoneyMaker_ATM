@@ -63,7 +63,6 @@ public final class FrameLeituraCartao extends javax.swing.JFrame {
         }
     }
     
-    
 
     // Método que armazena o JFrame pai
     public void setParentFrame(FrameLeituraCartao parentFrame) {

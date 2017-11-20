@@ -7,7 +7,6 @@ package View.ATM;
 
 import Control.ATM.ControlConsultaSaldo;
 import Control.ATM.ControlMenuPrincipal;
-import Entity.ATM.Conta;
 
 /**
  *
@@ -17,7 +16,6 @@ public final class FrameConsultaSaldo extends javax.swing.JFrame {
 
     private static final long serialVersionUID = 1L;
     private FrameMenuOperacoes parentFrame;
-    private Conta conta;
     
     /**
      * Creates new form FrameConsultaSaldo
@@ -80,14 +78,6 @@ public final class FrameConsultaSaldo extends javax.swing.JFrame {
     // Método que retorna o JFrame pai
     public FrameMenuOperacoes getParentFrame() {
         return this.parentFrame;
-    }
-
-    public Conta getConta() {
-        return conta;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
     }
 
     /**

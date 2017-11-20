@@ -17,7 +17,7 @@ public class ControlConsultaSaldo {
     // Método que obtém o nome do cliente
     public static String getNomeCliente(FrameConsultaSaldo frame) {
         try {
-            return frame.getConta().getCliente().getNome();
+            return frame.getParentFrame().getConta().getCliente().getNome();
         } catch (Exception e) {
             return "";
         }
@@ -26,7 +26,7 @@ public class ControlConsultaSaldo {
     // Método que obtém o número da conta
     public static String getNumeroConta(FrameConsultaSaldo frame) {
         try {
-            return frame.getConta().getNumeroConta();
+            return frame.getParentFrame().getConta().getNumeroConta();
         } catch (Exception e) {
             return "";
         }
@@ -35,7 +35,7 @@ public class ControlConsultaSaldo {
     // Método que obtém o limite
     public static String getLimite(FrameConsultaSaldo frame) {
         try {
-            return String.valueOf(frame.getConta().getLimite());
+            return String.valueOf(frame.getParentFrame().getConta().getLimite());
         } catch (Exception e) {
             return "";
         }
@@ -53,7 +53,7 @@ public class ControlConsultaSaldo {
     // Método que obtém o aniversário
     public static String getAniversario(FrameConsultaSaldo frame) {
         try {
-            return frame.getConta().getDataAbertura();
+            return frame.getParentFrame().getConta().getDataAbertura();
         } catch (Exception e) {
             return "";
         }
@@ -62,7 +62,7 @@ public class ControlConsultaSaldo {
     // Método que obtém o saldo
     public static String getSaldo(FrameConsultaSaldo frame) {
         try {
-            return String.valueOf(frame.getConta().getSaldo());
+            return String.valueOf(frame.getParentFrame().getConta().getSaldo());
         } catch (Exception e) {
             return "";
         }

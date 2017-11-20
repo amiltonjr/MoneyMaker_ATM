@@ -117,7 +117,7 @@ public class ControlRetirarExtrato {
     // Método que obtém o nome do cliente
     public static String getNomeCliente(FrameRetirarExtrato frame) {
         try {
-            return frame.getConta().getCliente().getNome();
+            return frame.getParentFrame().getConta().getCliente().getNome();
         } catch (Exception e) {
             return "";
         }
@@ -126,7 +126,7 @@ public class ControlRetirarExtrato {
     // Método que obtém o número da conta
     public static String getNumeroConta(FrameRetirarExtrato frame) {
         try {
-            return frame.getConta().getNumeroConta();
+            return frame.getParentFrame().getConta().getNumeroConta();
         } catch (Exception e) {
             return "";
         }
@@ -135,7 +135,7 @@ public class ControlRetirarExtrato {
     // Método que obtém o limite
     public static String getLimite(FrameRetirarExtrato frame) {
         try {
-            return String.valueOf(frame.getConta().getLimite());
+            return String.valueOf(frame.getParentFrame().getConta().getLimite());
         } catch (Exception e) {
             return "";
         }
@@ -144,7 +144,7 @@ public class ControlRetirarExtrato {
     // Método que obtém o tipo de conta
     public static String getTipo(FrameRetirarExtrato frame) {
         try {
-            return frame.getConta().getTipo();
+            return frame.getParentFrame().getConta().getTipo();
         } catch (Exception e) {
             return "";
         }
@@ -153,7 +153,7 @@ public class ControlRetirarExtrato {
     // Metodo que obtém o aniversário da conta
     public static String getAniversario(FrameRetirarExtrato frame) {
         try {
-            return frame.getConta().getDataAbertura();
+            return frame.getParentFrame().getConta().getDataAbertura();
         } catch (Exception e) {
             return "";
         }
@@ -162,7 +162,7 @@ public class ControlRetirarExtrato {
     // Método que obtém a lista de movimentações (extrato)
     public static List<Movimentacao> getExtrato(FrameRetirarExtrato frame) {
         try {
-            return frame.getConta().getMovimentacoes();
+            return frame.getParentFrame().getConta().getMovimentacoes();
         } catch (Exception e) {
             return new ArrayList<>();
         }

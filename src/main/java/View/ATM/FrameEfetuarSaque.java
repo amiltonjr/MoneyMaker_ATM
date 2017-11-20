@@ -7,7 +7,6 @@ package View.ATM;
 
 import Control.ATM.ControlEfetuarSaque;
 import Control.ATM.ControlMenuPrincipal;
-import Entity.ATM.Conta;
 /**
  *
  * @author amiltonjunior
@@ -18,7 +17,6 @@ public class FrameEfetuarSaque extends javax.swing.JFrame {
     private FrameMenuOperacoes parentFrame;
     private FrameSucessoTransacao frameSucesso;
     private FrameErroTransacao frameErro;
-    private Conta conta;
     
     /**
      * Creates new form FrameEfetuarSaque
@@ -54,15 +52,6 @@ public class FrameEfetuarSaque extends javax.swing.JFrame {
     public void focoValor() {
         valor.requestFocus();
     }
-
-    public Conta getConta() {
-        return conta;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
-    }
-    
   
 
     /**

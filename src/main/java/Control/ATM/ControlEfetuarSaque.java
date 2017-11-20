@@ -28,10 +28,10 @@ public class ControlEfetuarSaque {
             double _valor = Double.parseDouble(valor);
 
             // Envia a solicitação para o pacote Model
-            if (Sacar.sacar(currentFrame.getConta(), _valor)) {
+            if (Sacar.sacar(currentFrame.getParentFrame().getConta(), _valor)) {
 
-                double saldo = currentFrame.getConta().getSaldo() - _valor;
-                currentFrame.getConta().setSaldo(saldo);
+                double saldo = currentFrame.getParentFrame().getConta().getSaldo() - _valor;
+                currentFrame.getParentFrame().getConta().setSaldo(saldo);
 
                 Movimentacao movimentacao = new Movimentacao();
 
@@ -41,21 +41,21 @@ public class ControlEfetuarSaque {
 
                 movimentacao.setNumero(GerarNumero.get());
                 movimentacao.setOperacao("SAQUE");
-                movimentacao.setCpf(currentFrame.getConta().getCliente().getCpf());
+                movimentacao.setCpf(currentFrame.getParentFrame().getConta().getCliente().getCpf());
                 movimentacao.setValor(String.format("%.2f", _valor));
                 movimentacao.setSaldo(String.format("%.2f", saldo));
 
-                currentFrame.getConta().setSaldo(saldo);
-                currentFrame.getConta().addMovimentacao(movimentacao);
+                currentFrame.getParentFrame().getConta().setSaldo(saldo);
+                currentFrame.getParentFrame().getConta().addMovimentacao(movimentacao);
 
                 // Atualiza no arquivo de dados
                 boolean status = false;
 
-                movimentacao.setConta(currentFrame.getConta());
+                movimentacao.setConta(currentFrame.getParentFrame().getConta());
 
                 try {
                     MovimentacaoDAO.getInstance().persist(movimentacao);
-                    status = ContaDAO.getInstance().merge(currentFrame.getConta());
+                    status = ContaDAO.getInstance().merge(currentFrame.getParentFrame().getConta());
 
                     if (status) {
                         sucesso(currentFrame, sucessFrame);

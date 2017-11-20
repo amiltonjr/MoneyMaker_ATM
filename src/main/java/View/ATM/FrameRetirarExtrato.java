@@ -7,7 +7,6 @@ package View.ATM;
 
 import Control.ATM.ControlMenuPrincipal;
 import Control.ATM.ControlRetirarExtrato;
-import Entity.ATM.Conta;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,7 +19,6 @@ public final class FrameRetirarExtrato extends javax.swing.JFrame {
     private static final long serialVersionUID = 1L;
     private FrameMenuOperacoes parentFrame;
     private final DefaultTableModel modelT;
-    private Conta conta;
     
     /**
      * Creates new form FrameRetirarExtrato
@@ -81,14 +79,6 @@ public final class FrameRetirarExtrato extends javax.swing.JFrame {
     
     public void addExtrato(ArrayList<String> extrato) {
         modelT.addRow(new Object[]{extrato.get(0), extrato.get(1), extrato.get(2), extrato.get(3), extrato.get(4)});
-    }
-
-    public Conta getConta() {
-        return conta;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
     }
     
     // Método que retorna o JFrame pai
@@ -340,7 +330,7 @@ public final class FrameRetirarExtrato extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar6ActionPerformed
 
     private void btnEfetuarDeposito7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEfetuarDeposito7ActionPerformed
-        ControlRetirarExtrato.imprimir(jTableExtrato, conta);
+        ControlRetirarExtrato.imprimir(jTableExtrato, this.getParentFrame().getConta());
     }//GEN-LAST:event_btnEfetuarDeposito7ActionPerformed
 
     /**

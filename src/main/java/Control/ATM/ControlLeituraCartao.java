@@ -19,14 +19,7 @@ public class ControlLeituraCartao {
             currentFrame.getErrorFrame().setContaBloqueada();
             simularErroLeitura(currentFrame, currentFrame.getErrorFrame());
         } else {
-            // Define a conta em todos os frames
-            nextFrame.setConta(conta);
-            nextFrame.getFrameConsultaSaldo().setConta(conta);
-            nextFrame.getFrameEfetuarDeposito().setConta(conta);
-            nextFrame.getFrameEfetuarSaque().setConta(conta);
-            nextFrame.getFrameEfetuarTransferencia().setConta(conta);
-            nextFrame.getFrameRetirarExtrato().setConta(conta);
-            
+            nextFrame.setConta(conta); // Define a conta
             currentFrame.setVisible(false); // Oculta o FrameLeituraCartao
             nextFrame.setVisible(true); // Exibe o FrameMenuPrincipal
         }

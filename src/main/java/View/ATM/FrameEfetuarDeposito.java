@@ -7,7 +7,6 @@ package View.ATM;
 
 import Control.ATM.ControlEfetuarDeposito;
 import Control.ATM.ControlMenuPrincipal;
-import Entity.ATM.Conta;
 
 /**
  *
@@ -19,7 +18,6 @@ public class FrameEfetuarDeposito extends javax.swing.JFrame {
     private FrameMenuOperacoes parentFrame;
     private FrameSucessoTransacao frameSucesso;
     private FrameErroTransacao frameErro;
-    private Conta conta;
     
     /**
      * Creates new form FrameEfetuarDeposito
@@ -36,14 +34,6 @@ public class FrameEfetuarDeposito extends javax.swing.JFrame {
     // Método que retorna o JFrame pai
     public FrameMenuOperacoes getParentFrame() {
         return this.parentFrame;
-    }
-
-    public Conta getConta() {
-        return conta;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
     }
     
     public void setFrameSucesso(FrameSucessoTransacao frame) {
