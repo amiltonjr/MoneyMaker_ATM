@@ -44,7 +44,7 @@ public class ControlConsultaSaldo {
     // Método que obtém o tipo
     public static String getTipo(FrameConsultaSaldo frame) {
         try {
-            return frame.getConta().getTipo();
+            return frame.getParentFrame().getConta().getTipo();
         } catch (Exception e) {
             return "";
         }

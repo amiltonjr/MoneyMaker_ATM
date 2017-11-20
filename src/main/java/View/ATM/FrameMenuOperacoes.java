@@ -19,6 +19,7 @@ public class FrameMenuOperacoes extends javax.swing.JFrame {
     private FrameConsultaSaldo frameConsultaSaldo;
     private FrameEfetuarDeposito frameEfetuarDeposito;
     private FrameEfetuarSaque frameEfetuarSaque;
+    private FrameEfetuarTransferencia frameEfetuarTransferencia;
     private FrameRetirarExtrato frameRetirarExtrato;
     private FramePaginaConstruindo framePaginaConstruindo;
     private Conta conta;
@@ -62,12 +63,38 @@ public class FrameMenuOperacoes extends javax.swing.JFrame {
         this.frameEfetuarSaque = frame;
     }
     
+    public void setFrameEfetuarTransferencia(FrameEfetuarTransferencia frame) {
+        this.frameEfetuarTransferencia = frame;
+    }
+    
     public void setFrameRetirarExtrato(FrameRetirarExtrato frame) {
         this.frameRetirarExtrato = frame;
     }
     
     public void setFramePaginaConstruindo(FramePaginaConstruindo frame) {
         this.framePaginaConstruindo = frame;
+    }
+    
+    /* Métodos Gets */
+    
+    public FrameConsultaSaldo getFrameConsultaSaldo() {
+        return this.frameConsultaSaldo;
+    }
+    
+    public FrameEfetuarDeposito getFrameEfetuarDeposito() {
+        return this.frameEfetuarDeposito;
+    }
+    
+    public FrameEfetuarSaque getFrameEfetuarSaque() {
+        return this.frameEfetuarSaque;
+    }
+    
+    public FrameEfetuarTransferencia getFrameEfetuarTransferencia() {
+        return this.frameEfetuarTransferencia;
+    }
+    
+    public FrameRetirarExtrato getFrameRetirarExtrato() {
+        return this.frameRetirarExtrato;
     }
 
     /**
@@ -304,6 +331,14 @@ public class FrameMenuOperacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnOutrosclick
 
     private void btnCancelar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar7ActionPerformed
+         // Remove a conta em todos os frames
+         this.setConta(null);
+         this.getFrameConsultaSaldo().setConta(null);
+         this.getFrameEfetuarDeposito().setConta(null);
+         this.getFrameEfetuarSaque().setConta(null);
+         this.getFrameEfetuarTransferencia().setConta(null);
+         this.getFrameRetirarExtrato().setConta(null);
+        
         ControlMenuPrincipal.cancelar(this, getParentFrame());
     }//GEN-LAST:event_btnCancelar7ActionPerformed
 
@@ -320,7 +355,7 @@ public class FrameMenuOperacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_jBMenuextratoActionPerformed
 
     private void jBMenutransferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMenutransferActionPerformed
-        ControlMenuPrincipal.Transferir(this, this.framePaginaConstruindo);
+        ControlMenuPrincipal.Transferir(this, this.frameEfetuarTransferencia);
     }//GEN-LAST:event_jBMenutransferActionPerformed
 
     private void jBMenuempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBMenuempActionPerformed

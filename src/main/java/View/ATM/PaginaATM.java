@@ -101,6 +101,7 @@ public class PaginaATM extends javax.swing.JDialog {
                 FrameConsultaSaldo frameConsultaSaldo = new FrameConsultaSaldo();
                 FrameEfetuarDeposito frameEfetuarDeposito = new FrameEfetuarDeposito();
                 FrameEfetuarSaque frameEfetuarSaque = new FrameEfetuarSaque();
+                FrameEfetuarTransferencia frameEfetuarTransferencia = new FrameEfetuarTransferencia();
                 FrameRetirarExtrato frameRetirarExtrato = new FrameRetirarExtrato();
                 FramePaginaConstruindo framePaginaConstruindo = new FramePaginaConstruindo();
                 FrameSucessoTransacao frameSucessoTransacao = new FrameSucessoTransacao();
@@ -112,6 +113,7 @@ public class PaginaATM extends javax.swing.JDialog {
                 frameConsultaSaldo.setParentFrame(frameMenuOperacoes);
                 frameEfetuarDeposito.setParentFrame(frameMenuOperacoes);
                 frameEfetuarSaque.setParentFrame(frameMenuOperacoes);
+                frameEfetuarTransferencia.setParentFrame(frameMenuOperacoes);
                 frameRetirarExtrato.setParentFrame(frameMenuOperacoes);
                 framePaginaConstruindo.setParentFrame(frameMenuOperacoes);
                 frameErroTransacao.setParentFrame(frameMenuOperacoes);
@@ -126,11 +128,14 @@ public class PaginaATM extends javax.swing.JDialog {
                 frameEfetuarDeposito.setFrameErro(frameErroTransacao);
                 frameEfetuarSaque.setFrameSucesso(frameSucessoTransacao);
                 frameEfetuarSaque.setFrameErro(frameErroTransacao);
+                frameEfetuarTransferencia.setFrameSucesso(frameSucessoTransacao);
+                frameEfetuarTransferencia.setFrameErro(frameErroTransacao);
 
                 // Define os JFrames do menu principal
                 frameMenuOperacoes.setFrameConsultaSaldo(frameConsultaSaldo);
                 frameMenuOperacoes.setFrameEfetuarDeposito(frameEfetuarDeposito);
                 frameMenuOperacoes.setFrameEfetuarSaque(frameEfetuarSaque);
+                frameMenuOperacoes.setFrameEfetuarTransferencia(frameEfetuarTransferencia);
                 frameMenuOperacoes.setFrameRetirarExtrato(frameRetirarExtrato);
                 frameMenuOperacoes.setFramePaginaConstruindo(framePaginaConstruindo);
 
@@ -141,6 +146,7 @@ public class PaginaATM extends javax.swing.JDialog {
                 frameConsultaSaldo.setLocationRelativeTo(null);
                 frameEfetuarDeposito.setLocationRelativeTo(null);
                 frameEfetuarSaque.setLocationRelativeTo(null);
+                frameEfetuarTransferencia.setLocationRelativeTo(null);
                 frameRetirarExtrato.setLocationRelativeTo(null);
                 framePaginaConstruindo.setLocationRelativeTo(null);
                 frameErroTransacao.setLocationRelativeTo(null);

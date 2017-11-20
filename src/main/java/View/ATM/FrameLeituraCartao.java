@@ -10,7 +10,6 @@ import Control.ATM.ControlLeituraCartao;
 import DAO.ATM.ContaDAO;
 import Entity.ATM.Conta;
 import java.util.List;
-import javax.persistence.FlushModeType;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -60,7 +59,6 @@ public final class FrameLeituraCartao extends javax.swing.JFrame {
         cmbClientes.addItem("Selecione uma conta");
 
         for (Conta c : this.contas) {
-
             cmbClientes.addItem("AG: " + c.getAgencia() + " CONTA Nº " + c.getNumeroConta() + " CLIENTE: " + c.getCliente().getNome());
         }
     }
@@ -214,7 +212,7 @@ public final class FrameLeituraCartao extends javax.swing.JFrame {
 
         if (index > 0) {
             // Chama a ação na classe ControlLeituraCartao
-            ControlLeituraCartao.simularLeitura(this, getNextFrame(), contas.get(index -1));
+            ControlLeituraCartao.simularLeitura(this, getNextFrame(), contas.get(index-1));
 
         } else {
             JOptionPane.showMessageDialog(new JFrame(), "Selecione um cliente!", "Erro", JOptionPane.ERROR_MESSAGE);

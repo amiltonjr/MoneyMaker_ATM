@@ -48,10 +48,16 @@ public final class FrameConsultaSaldo extends javax.swing.JFrame {
     public void setTipo(String tipo) {
         jLabelTipo.setText(tipo);
         
-        if (tipo.equals("poupanca"))
-            setLabelData("Aniversário da conta:");
-        else
+        try {
+            if (tipo.equals("poupanca"))
+                setLabelData("Aniversário da conta:");
+            else
+                setLabelData("Data de abertura:");
+        } catch (NullPointerException e) {
             setLabelData("Data de abertura:");
+            
+            e.printStackTrace();
+        }
     }
     
     public void setAniversario(String aniversario) {

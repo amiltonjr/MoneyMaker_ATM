@@ -8,6 +8,7 @@ package Control.ATM;
 import View.ATM.FrameConsultaSaldo;
 import View.ATM.FrameEfetuarDeposito;
 import View.ATM.FrameEfetuarSaque;
+import View.ATM.FrameEfetuarTransferencia;
 import View.ATM.FrameErroLeituraCartao;
 import View.ATM.FrameErroTransacao;
 import View.ATM.FrameLeituraCartao;
@@ -51,9 +52,9 @@ public class ControlMenuPrincipal {
         nextFrame.iniciar();
     }
     
-    public static void Transferir(FrameMenuOperacoes currentFrame, FramePaginaConstruindo nextFrame) {
+    public static void Transferir(FrameMenuOperacoes currentFrame, FrameEfetuarTransferencia nextFrame) {
         currentFrame.setVisible(false); // Oculta o FrameMenuOperacoes
-        nextFrame.setVisible(true); // Exibe o FramePaginaConstruindo
+        nextFrame.setVisible(true); // Exibe o FrameEfetuarTransferencia
     }
     
     public static void verSaldo(FrameMenuOperacoes currentFrame, FrameConsultaSaldo nextFrame) {
@@ -102,6 +103,13 @@ public class ControlMenuPrincipal {
     
     public static void cancelar(FrameEfetuarSaque currentFrame, FrameMenuOperacoes parentFrame) {
         currentFrame.setVisible(false); // Oculta o FrameEfetuarSaque
+        parentFrame.setVisible(true); // Exibe o FrameMenuOperacoes
+        parentFrame.getParentFrame().clearInstance();
+        parentFrame.setConta(parentFrame.getParentFrame().getConta(0));
+    }
+    
+    public static void cancelar(FrameEfetuarTransferencia currentFrame, FrameMenuOperacoes parentFrame) {
+        currentFrame.setVisible(false); // Oculta o FrameEfetuarTransferencia
         parentFrame.setVisible(true); // Exibe o FrameMenuOperacoes
         parentFrame.getParentFrame().clearInstance();
         parentFrame.setConta(parentFrame.getParentFrame().getConta(0));
